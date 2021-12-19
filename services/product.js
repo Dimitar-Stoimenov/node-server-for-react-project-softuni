@@ -1,19 +1,19 @@
-const Furniture = require('../models/Furniture');
+const Product = require('../models/Product');
 
 
 async function getAll() {
-    return Furniture.find({}).lean();
+    return Product.find({}).lean();
 }
 
 async function create(data) {
-    const result = new Furniture(data);
+    const result = new Product(data);
     await result.save();
 
     return result;
 }
 
 async function getById(id) {
-    return Furniture.findById(id);
+    return Product.findById(id);
 }
 
 async function update(original, updated) {
@@ -24,7 +24,7 @@ async function update(original, updated) {
 }
 
 async function remove(id) {
-    return Furniture.findByIdAndDelete(id);
+    return Product.findByIdAndDelete(id);
 }
 
 module.exports = {

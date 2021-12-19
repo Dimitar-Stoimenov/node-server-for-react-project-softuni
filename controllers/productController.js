@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const { isAuth, isOwner } = require('../middlewares/guards')
-const { getAll, create, update, remove } = require('../services/furniture');
+const { getAll, create, update, remove } = require('../services/product');
 const { parseError } = require('../util');
 const preload = require('../middlewares/preload');
 

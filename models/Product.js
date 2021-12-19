@@ -40,4 +40,4 @@ const schema = new Schema({
     }
 });
 
-module.exports = model('Furniture', schema);
+module.exports = model('Product', schema);

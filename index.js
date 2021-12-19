@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const cors = require('./middlewares/cors');
 const { PORT, DB_CONNECTION_STRING } = require('./constants');
-const furnitureController = require('./controllers/furnitureController');
+const productController = require('./controllers/productController');
 const usersController = require('./controllers/usersController');
 const auth = require('./middlewares/auth');
 
@@ -27,7 +27,7 @@ async function start() {
     app.use(auth());
     app.use(express.json());
 
-    app.use('/data/catalog', furnitureController);
+    app.use('/data/catalog', productController);
     app.use('/users', usersController);
 
     app.get('/', (req, res) => {

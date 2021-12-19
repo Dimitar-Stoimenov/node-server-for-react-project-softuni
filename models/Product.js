@@ -8,7 +8,7 @@ const schema = new Schema({
     },
     type: {
         category: String,
-        enum: ['smartphones', 'smartwatches', 'accesorries'],
+        enum: ['Smartphones', 'Smartwatches', 'Accesorries'],
     },
     description: {
         type: String,
@@ -24,6 +24,7 @@ const schema = new Schema({
         type: String,
         required: [true, 'Image URL is required'],
     },
+    memory: [String],
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'

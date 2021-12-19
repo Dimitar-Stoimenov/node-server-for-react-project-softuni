@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { register, login } = require('../services/users');
 
 router.post('/register', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, isVendor } = req.body;
 
     try {
         if (!email.trim()) {
@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
             throw new Error('Password must be atleast 3 characters long!');
         }
 
-        const userData = await register(email.toLocaleLowerCase().trim(), password.trim());
+        const userData = await register(email.toLocaleLowerCase().trim(), password.trim(), isVendor);
 
         res.json(userData);
     } catch (err) {

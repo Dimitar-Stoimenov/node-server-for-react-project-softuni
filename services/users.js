@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { SECRET } = require('../constants')
 
-async function register(email, password) {
+async function register(email, password, isVendor) {
     // check if user exists
     const existing = await User.findOne({ email });
 
@@ -18,6 +18,7 @@ async function register(email, password) {
     const user = new User({
         email,
         hashedPassword,
+        isVendor,
     });
 
     await user.save();
@@ -26,6 +27,7 @@ async function register(email, password) {
         _id: user._id,
         email: user.email,
         accessToken: createToken(user),
+        isVendor: user.isVendor,
     };
 }
 
@@ -50,6 +52,7 @@ async function login(email, password) {
         _id: user._id,
         email: user.email,
         accessToken: createToken(user),
+        isVendor: user.isVendor,
     };
 }
 

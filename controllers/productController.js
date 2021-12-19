@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { isAuth, isOwner } = require('../middlewares/guards')
+const { isAuth, isOwner, isVendor } = require('../middlewares/guards')
 const { getAll, create, update, remove } = require('../services/product');
 const { parseError } = require('../util');
 const preload = require('../middlewares/preload');
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     res.json(data);
 });
 
-router.post('/', isAuth(), async (req, res) => {
+router.post('/', isVendor(), async (req, res) => {
     const data = {
         name: req.body.name,
         description: req.body.description,

@@ -9,6 +9,16 @@ module.exports = {
         };
     },
 
+    isVendor() {
+        return (req, res, next) => {
+            if (!req.user.isVendor) {
+                res.status(403).json({ message: 'You are not a vendor!' });
+            } else {
+                next();
+            }
+        };
+    },
+
     isGuest() {
         return (req, res, next) => {
             if (req.user) {

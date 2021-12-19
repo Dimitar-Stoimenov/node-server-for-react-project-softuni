@@ -60,6 +60,7 @@ function createToken(user) {
     const token = jwt.sign({
         _id: user._id,
         email: user.email,
+        isVendor: user.isVendor,
     }, SECRET);
 
     return token;

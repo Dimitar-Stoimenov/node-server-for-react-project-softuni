@@ -18,6 +18,7 @@ router.post('/', isAuth(), async (req, res) => {
         price: Number(req.body.price),
         image: req.body.image,
         owner: req.user._id,
+        category: req.body.category,
     };
 
     try {

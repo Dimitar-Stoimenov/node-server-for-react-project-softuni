@@ -9,6 +9,7 @@ const schema = new Schema({
     category: {
         type: String,
         enum: ['Smartphones', 'Smartwatches', 'Accesorries'],
+        required: [true, 'Category is required'],
     },
     description: {
         type: String,

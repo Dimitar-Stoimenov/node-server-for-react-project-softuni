@@ -28,7 +28,8 @@ const schema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    likes: [],
 });
 
 module.exports = model('Product', schema);

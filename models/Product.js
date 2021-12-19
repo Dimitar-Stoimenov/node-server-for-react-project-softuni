@@ -6,8 +6,8 @@ const schema = new Schema({
         required: [true, 'Name is required'],
         minlength: [4, 'Name must be atleast 4 characters long'],
     },
-    type: {
-        category: String,
+    category: {
+        type: String,
         enum: ['Smartphones', 'Smartwatches', 'Accesorries'],
     },
     description: {

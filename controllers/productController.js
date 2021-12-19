@@ -13,13 +13,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', isAuth(), async (req, res) => {
     const data = {
-        make: req.body.make,
-        model: req.body.model,
-        year: Number(req.body.year),
+        name: req.body.name,
         description: req.body.description,
         price: Number(req.body.price),
         img: req.body.img,
-        material: req.body.material,
         owner: req.user._id,
     };
 
@@ -45,13 +42,10 @@ router.get('/:id', preload(), async (req, res) => {
 
 router.put('/:id', isAuth(), preload(), isOwner(), async (req, res) => {
     const updated = {
-        make: req.body.make,
-        model: req.body.model,
-        year: Number(req.body.year),
+        name: req.body.name,
         description: req.body.description,
         price: Number(req.body.price),
         img: req.body.img,
-        material: req.body.material,
     };
 
     try {

@@ -16,7 +16,7 @@ router.post('/', isAuth(), async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         price: Number(req.body.price),
-        img: req.body.img,
+        image: req.body.image,
         owner: req.user._id,
     };
 
@@ -28,7 +28,6 @@ router.post('/', isAuth(), async (req, res) => {
         const message = parseError(err);
         res.status(err.status || 400).json({ message });
     }
-
 });
 
 router.get('/:id', preload(), async (req, res) => {
@@ -45,7 +44,7 @@ router.put('/:id', isAuth(), preload(), isOwner(), async (req, res) => {
         name: req.body.name,
         description: req.body.description,
         price: Number(req.body.price),
-        img: req.body.img,
+        image: req.body.image,
     };
 
     try {

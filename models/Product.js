@@ -20,7 +20,7 @@ const schema = new Schema({
         required: [true, 'Price is required'],
         min: [0.01, 'Price must be greater than zero'],
     },
-    img: {
+    image: {
         type: String,
         required: [true, 'Image URL is required'],
     },

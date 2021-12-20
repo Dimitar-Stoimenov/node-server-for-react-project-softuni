@@ -11,6 +11,22 @@ router.get('/', async (req, res) => {
     res.json(data);
 });
 
+router.get('/most-popular', async (req, res) => {
+    const data = await getAll();
+
+    let sortedArr = data.sort((a, b) => {
+        if (b.likes.length == a.likes.length) {
+            return b.price - a.price;
+        }
+
+        return b.likes.length - a.likes.length;
+    });
+
+    let sortedData = [sortedArr[0], sortedArr[1], sortedArr[2]];
+
+    res.json(sortedData);
+});
+
 router.post('/', isVendor(), async (req, res) => {
     const data = {
         name: req.body.name,

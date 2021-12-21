@@ -27,10 +27,15 @@ async function remove(id) {
     return Product.findByIdAndDelete(id);
 }
 
+async function getByOwnerId(id) {
+    return Product.find({ owner: id });
+}
+
 module.exports = {
     getAll,
     getById,
     create,
     update,
     remove,
+    getByOwnerId,
 };

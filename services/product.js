@@ -1,6 +1,5 @@
 const Product = require('../models/Product');
 
-
 async function getAll() {
     return Product.find({}).lean();
 }

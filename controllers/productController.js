@@ -70,6 +70,7 @@ router.put('/:id', isAuth(), preload(), isOwner(), async (req, res) => {
         description: req.body.description,
         price: Number(req.body.price),
         image: req.body.image,
+        category: req.body.category,
     };
 
     try {

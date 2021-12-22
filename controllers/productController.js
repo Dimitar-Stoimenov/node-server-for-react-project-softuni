@@ -22,17 +22,17 @@ router.get('/my-products', isAuth(), isVendor(), async (req, res) => {
 router.get('/most-popular', async (req, res) => {
     const data = await getAll();
 
-    let sortedArr = data.sort((a, b) => {
-        if (b.likes.length == a.likes.length) {
-            return b.price - a.price;
-        }
+    // let sortedArr = data.sort((a, b) => {
+    //     if (b.ratings.length == a.ratings.length) {
+    //         return b.price - a.price;
+    //     }
 
-        return b.likes.length - a.likes.length;
-    });
+    //     return b.ratings.length - a.ratings.length;
+    // });
 
-    let sortedData = [sortedArr[0], sortedArr[1], sortedArr[2]];
+    // let sortedData = [sortedArr[0], sortedArr[1], sortedArr[2]];
 
-    res.json(sortedData);
+    res.json(data);
 });
 
 router.post('/', isVendor(), async (req, res) => {
@@ -74,6 +74,26 @@ router.put('/:id', isAuth(), preload(), isOwner(), async (req, res) => {
     };
 
     try {
+        const result = await update(req.data, updated);
+
+        res.status(200).json(result);
+    } catch (err) {
+        const message = parseError(err);
+        res.status(err.status || 400).json({ message });
+    }
+});
+
+router.put('/ratings/:id', isAuth(), preload(), async (req, res) => {
+    const updated = {
+        voters: req.body.voters,
+        ratings: req.body.ratings,
+    };
+
+    try {
+        if (req.data.voters.includes(req.user._id)) {
+            throw new Error('User has already voted!');
+        }
+
         const result = await update(req.data, updated);
 
         res.status(200).json(result);

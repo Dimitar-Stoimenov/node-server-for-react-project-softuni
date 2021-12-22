@@ -29,7 +29,8 @@ const schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    likes: [],
+    voters: [String],
+    ratings: [Number],
 });
 
 module.exports = model('Product', schema);

@@ -29,7 +29,10 @@ const schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    voters: [String],
+    voters: {
+        type: Array,
+        required: true,
+    },
     ratings: [Number],
 });
 

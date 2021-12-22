@@ -22,17 +22,17 @@ router.get('/my-products', isAuth(), isVendor(), async (req, res) => {
 router.get('/most-popular', async (req, res) => {
     const data = await getAll();
 
-    // let sortedArr = data.sort((a, b) => {
-    //     if (b.ratings.length == a.ratings.length) {
-    //         return b.price - a.price;
-    //     }
+    let sortedArr = data.sort((a, b) => {
+        if (b.voters.length === a.voters.length) {
+            return b.price - a.price;
+        }
 
-    //     return b.ratings.length - a.ratings.length;
-    // });
+        return b.voters.length - a.voters.length;
+    });
 
-    // let sortedData = [sortedArr[0], sortedArr[1], sortedArr[2]];
+    let sortedData = [sortedArr[0], sortedArr[1], sortedArr[2]];
 
-    res.json(data);
+    res.json(sortedData);
 });
 
 router.post('/', isVendor(), async (req, res) => {

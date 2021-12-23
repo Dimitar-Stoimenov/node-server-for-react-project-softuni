@@ -20,5 +20,13 @@
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimitar-Stoimenov/node-server-for-react-project-softuni.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dimitar-Stoimenov/node-server-for-react-project-softuni/issues"
+  },
+  "homepage": "https://github.com/Dimitar-Stoimenov/node-server-for-react-project-softuni#readme",
   "description": ""
 }

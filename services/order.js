@@ -1,7 +1,7 @@
 const Order = require('../models/Order');
 
 async function getByUserId(id) {
-    return Product.find({ userId: id });
+    return Order.find({userId: id});
 }
 
 async function create(data) {

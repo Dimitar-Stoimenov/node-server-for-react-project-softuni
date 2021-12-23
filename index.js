@@ -5,6 +5,7 @@ const cors = require('./middlewares/cors');
 const { PORT, DB_CONNECTION_STRING } = require('./constants');
 const productController = require('./controllers/productController');
 const usersController = require('./controllers/usersController');
+const orderController = require('./controllers/orderController');
 const auth = require('./middlewares/auth');
 
 start();
@@ -28,6 +29,7 @@ async function start() {
     app.use(express.json());
 
     app.use('/data/catalog', productController);
+    app.use('/data/orders', orderController);
     app.use('/users', usersController);
 
     app.get('/', (req, res) => {

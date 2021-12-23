@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const cors = require('./middlewares/cors');
-const { PORT, DB_CONNECTION_STRING } = require('./constants');
+const { PORT, DB_CONNECTION_STRING } = require('./constants.js');
 const productController = require('./controllers/productController');
 const usersController = require('./controllers/usersController');
 const orderController = require('./controllers/orderController');

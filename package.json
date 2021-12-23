@@ -28,5 +28,8 @@
     "url": "https://github.com/Dimitar-Stoimenov/node-server-for-react-project-softuni/issues"
   },
   "homepage": "https://github.com/Dimitar-Stoimenov/node-server-for-react-project-softuni#readme",
-  "description": ""
+  "description": "",
+  "engines": {
+    "node": "14.x"
+  }
 }
